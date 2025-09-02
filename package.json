@@ -1,0 +1,9 @@
+{
+  "name": "@gglennd/main",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm run -r --parallel --aggregate-output dev",
+    "build": "pnpm run -r --parallel build"
+  },
+  "packageManager": "pnpm@10.6.5"
+}

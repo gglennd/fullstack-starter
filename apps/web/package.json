@@ -1,0 +1,25 @@
+{
+  "name": "@gglennd/web",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build"
+  },
+  "packageManager": "pnpm@10.6.5",
+  "dependencies": {
+    "@tanstack/react-router": "^1.131.31",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@tanstack/router-plugin": "^1.131.31",
+    "@types/react": "^19.1.12",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^5.0.2",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.4",
+    "vite-tsconfig-paths": "^5.1.4"
+  }
+}
