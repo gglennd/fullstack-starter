@@ -4,9 +4,11 @@ import { logger } from "hono/logger";
 import factory from "./factory";
 import { serveStatic } from "@hono/node-server/serve-static";
 import { env } from "hono/adapter";
+import auth from "./lib/auth";
 
 const app = new Hono({ strict: false })
   .use(logger())
+  .on(["POST", "GET"], "/auth/*", c => auth.handler(c.req.raw))
 
 const api = factory.createApp().basePath("/api")
   .get("/", c => c.json({ health: "Ok" }, 200))
