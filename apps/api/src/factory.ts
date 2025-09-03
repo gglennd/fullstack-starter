@@ -1,7 +1,7 @@
 import { createFactory } from "hono/factory";
 
 const factory = createFactory({
-  defaultAppOptions: { strict: false }
-})
+  defaultAppOptions: { strict: false },
+});
 
-export default factory
+export default factory;

@@ -4,8 +4,8 @@ import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
-  server: { 
-    strictPort: true
+  server: {
+    strictPort: true,
   },
   plugins: [
     tsconfigPaths(),
@@ -17,6 +17,6 @@ export default defineConfig({
   ],
   build: {
     emptyOutDir: false,
-    outDir: "../api/dist/static"
-  }
+    outDir: "../api/dist/static",
+  },
 });

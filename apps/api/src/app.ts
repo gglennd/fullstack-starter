@@ -1,32 +1,31 @@
-import { Hono } from "hono";
-import { logger } from "hono/logger";
-
-import factory from "./factory";
 import { serveStatic } from "@hono/node-server/serve-static";
+import { Hono } from "hono";
+
 import { env } from "hono/adapter";
+import { logger } from "hono/logger";
+import factory from "./factory";
 import auth from "./lib/auth";
 
 const app = new Hono({ strict: false })
   .use(logger())
-  .on(["POST", "GET"], "/auth/*", c => auth.handler(c.req.raw))
+  .on(["POST", "GET"], "/auth/*", c => auth.handler(c.req.raw));
 
-const api = factory.createApp().basePath("/api")
-  .get("/", c => c.json({ health: "Ok" }, 200))
+const api = factory.createApp().basePath("/api").get("/", c => c.json({ health: "Ok" }, 200));
 
-const routes = [api] as const
-routes.map(route => app.route("/", route))
+const routes = [api] as const;
+routes.map(route => app.route("/", route));
 
 app.use("*", async (c, next) => {
-  const { NODE_ENV } = env<{ NODE_ENV: "production" | "development" }>(c)
-  const isProd = NODE_ENV === "production"
+  const { NODE_ENV } = env<{ NODE_ENV: "production" | "development" }>(c);
+  const isProd = NODE_ENV === "production";
   if (!isProd) {
-    return c.text("Hello from Hono!")
+    return c.text("Hello from Hono!");
   }
-  return next()
+  return next();
 }, serveStatic({
   root: "./dist/static",
-  index: "index.html"
-}))
+  index: "index.html",
+}));
 
-export type RoutesType = typeof routes
-export default app
+export type RoutesType = typeof routes;
+export default app;
