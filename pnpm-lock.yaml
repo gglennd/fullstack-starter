@@ -50,6 +50,9 @@ importers:
 
   apps/web:
     dependencies:
+      '@tanstack/react-query':
+        specifier: ^5.85.9
+        version: 5.85.9(react@19.1.1)
       '@tanstack/react-router':
         specifier: ^1.131.31
         version: 1.131.32(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
@@ -950,6 +953,14 @@ packages:
   '@tanstack/history@1.131.2':
     resolution: {integrity: sha512-cs1WKawpXIe+vSTeiZUuSBy8JFjEuDgdMKZFRLKwQysKo8y2q6Q1HvS74Yw+m5IhOW1nTZooa6rlgdfXcgFAaw==}
     engines: {node: '>=12'}
+
+  '@tanstack/query-core@5.85.9':
+    resolution: {integrity: sha512-5fxb9vwyftYE6KFLhhhDyLr8NO75+Wpu7pmTo+TkwKmMX2oxZDoLwcqGP8ItKSpUMwk3urWgQDZfyWr5Jm9LsQ==}
+
+  '@tanstack/react-query@5.85.9':
+    resolution: {integrity: sha512-2T5zgSpcOZXGkH/UObIbIkGmUPQqZqn7esVQFXLOze622h4spgWf5jmvrqAo9dnI13/hyMcNsF1jsoDcb59nJQ==}
+    peerDependencies:
+      react: ^18 || ^19
 
   '@tanstack/react-router@1.131.32':
     resolution: {integrity: sha512-QvT7vV8ic7jOh3U8c2FkzdnHZ7eejPaneNQacJm4Op28aSpkFRwIU3S15pPYqyiLr8DnG5L75ADfSqlJ18ZGpw==}
@@ -3481,6 +3492,13 @@ snapshots:
       picomatch: 4.0.3
 
   '@tanstack/history@1.131.2': {}
+
+  '@tanstack/query-core@5.85.9': {}
+
+  '@tanstack/react-query@5.85.9(react@19.1.1)':
+    dependencies:
+      '@tanstack/query-core': 5.85.9
+      react: 19.1.1
 
   '@tanstack/react-router@1.131.32(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
     dependencies:
